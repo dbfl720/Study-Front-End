@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> input 태그 </title>
+    </head>
+    <body>
+        <!-- input 태그 / 한줄 쓸 때.-->
+        <b>ID</b>
+        <input type="text"><br><br>
+        <b>Password</b>
+        <input type="password"><br>
+        <b>Password 확인</b>
+        <input type="password"><br><br>
+
+
+        <!-- radio type: name이 같은 이름의 태그 중 하나만 선택된다. -->
+        <b>성별</b>
+        남자<input type="radio" name="gender" value="male"> 
+        여자<input type="radio" name="gender" value="female">
+        <br><br>
+
+        <!-- checkbox: 여러개를 선택할 수 있다.-->
+        <b>취미</b>
+        <label>독서<input type="checkbox" name="hobby" value="reading"></label>
+        <label>게임<input type="checkbox" name="hobby" value="game"></label>
+        <label>헬스<input type="checkbox" name="hobby" value="health"></label>
+        <label>등산<input type="checkbox" name="hobby" value="mountain"></label>
+        <br><br>
+
+
+        <!-- file type -->
+        <b> 프로필 사진 업로드 </b>
+        <br>
+        <input type="file"><br><br>
+
+
+        <!-- submit type: 데이터를 서버에 전송하는 버튼 -->
+        <input type="submit" value="회원가입">
+
+        <hr>
+
+        <!-- 일반 버튼 -->
+        <button type="button">버튼</button><br><br>
+       
+        <!-- select 태그: selected를 넣으면 항목이 기본 선택됨 -->
+        <!-- a href="" 키가 있고 값이 있는 것은 속성(attribute)-->
+        <!-- selected 키이름만 잇는 것 / 프로퍼티(property) // 항목이 기본 항목이 됨.-->
+        <b>좋아하는 과일은?</b>
+        <select>
+            <option>--선택--</option>
+            <option>사과</option>
+            <option>바나나</option>
+            <option selected>딸기</option>
+            <option>블루베리</option>
+        </select><br><br>
+
+
+        <!-- textarea : 여러줄 쓸 때.글자를 많이 넣을 때.-->
+        <b> 자기 소개</b><br>
+        <textarea rows="10" cols="100"></textarea>
+    </body>
+</html>
