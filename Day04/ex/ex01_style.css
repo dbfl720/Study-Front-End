@@ -1,0 +1,47 @@
+.box-size-100 {
+    width: 100px;
+    height: 100px;
+}
+
+#div1 {
+    background-color: yellowgreen;
+    padding-bottom: 30px;
+    margin-left: 20px;
+}
+
+#div2 {
+    background-color: blueviolet;
+}
+
+
+#div3 {
+    background-color: chocolate;
+}
+
+#div4 {
+    background-color: cornflowerblue;
+}
+
+
+/* 중요!!!! 옆에 자식요소 붙이게 할 수 있다.   정렬시키는 기능도 있다. */
+/* 자식요소들이 가운데로 옮긴다. */
+/* space-between : 양옆 끝으로 배치 */
+/* space-around : 양옆 약간 붙어있게 배치 */
+.flex {
+    display:flex;
+    justify-content:space-between;
+}
+
+.text1 {
+    background-color: yellow;
+    margin: 20px;
+    padding: 20px;
+}
+
+
+.text2 {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: block;
+}

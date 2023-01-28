@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>div 태그 사용하기</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="ex01_style.css">
+    </head>
+    <body>
+        <!-- div 특징 : 하나의 행에 자기 혼자 있으려고 한다. -->
+        <!-- div 태그는 block 속성이라 다음 요소가 아래로 떨어진다. -->
+        <div id="div1" class="box-size-100">상자</div>
+
+        <!-- div 옆에 붙이기 -->
+        <!-- ** 중요 *** flex: 블록을 옆에 붙이기, 정렬하기 -->
+        <div class="flex">
+            <div id="div2" class="box-size-100"></div>
+            <div id="div3" class="box-size-100"></div>
+            <div id="div4" class="box-size-100"></div>
+        </div>   
+
+        <!-- inline 태그 -->
+        <!-- inline은 크기 지정 안된다. - div 혹은 block으로 바꾼다. 사이즈를 바꾸고 싶으면.. -->
+        <!-- span: 투명한 상자 -->
+        <span class="text1">span 태그에 글시를 쓴다. 111</span>
+        <span class="text2">span 태그에 글시를 쓴다. 333</span>
+        
+    </body>
+</html>

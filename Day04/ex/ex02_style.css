@@ -1,0 +1,44 @@
+body{margin: 0;}
+
+/* 가로는 꼭 있어야함. 높이는 없어지면 알아서 가질만큼 가짐..? */
+#wrap {
+    width: 1200px;
+    height:1000px;
+    background-color: #999;
+}
+
+header{
+    width: 1200px;
+    height: 200px;
+    background-color: yellowgreen;
+}
+
+.contents {
+    width: 1200px;
+    height:700px;
+    background-color: blanchedalmond;
+}
+
+footer {
+    width: 1200px;
+    height: 100px;
+    background-color: tomato;
+}
+
+/* 자식이라서 > 해도됨. */
+.contents > aside {
+    width: 300px;
+    height: 700px;
+    background-color: silver;
+}
+
+/* 클래스라서 . 썼음. */
+.contents > .content1 {
+    width: 900px;
+    height:700px;
+    background-color: violet;
+}
+
+.flex {
+    display: flex;
+}
