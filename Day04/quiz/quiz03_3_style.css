@@ -1,0 +1,32 @@
+#tb1 {
+    width: 750px;
+    height: 250px;
+    text-align: center;
+}
+
+th{
+    height: 40px;
+}
+
+.table-bg{
+    background-color: darkcyan;
+}
+
+/* text-align은 block요소안에 있는 inline요소만 가능함. (text,이미지) */
+#sumResult {
+    text-align: right;
+}
+
+
+tbody > tr:hover {
+    background-color: cadetblue;
+}
+
+#saveBtn {
+    width: 750px; 
+    height: 35px;
+}
+
+.input-text {
+    width:135px; height:25px;
+}

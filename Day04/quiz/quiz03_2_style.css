@@ -1,0 +1,25 @@
+#tb1 {
+    width: 750px; height: 250px; text-align: center;
+}
+
+th{ height: 40px;}
+
+.table-bg {
+    background-color: darkcyan;
+}
+
+tbody> tr:hover {
+    background-color: cadetblue;
+}
+
+#sumResult {
+    text-align:  right;
+}
+
+.input-text {
+    width: 130px; height: 25px;
+}
+
+#saveBtn {
+    width: 750px; height: 35px;
+}

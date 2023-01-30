@@ -1,6 +1,8 @@
+
+
 .layer{
-    width:100px;
-    height:100px;
+    width:130px;
+    height:130px;
 }
 
 .red {
@@ -15,4 +17,28 @@
     background-color: yellow;
 }
 
-.
+
+.blue {
+    background-color: blue;
+    
+}
+
+
+.flex {display:flex;
+}
+
+.margin-top-30{
+    margin-top:30px;
+}
+
+.margin-right-20 {
+    margin-right: 20px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-left-300{
+    margin-left: 320px;
+}

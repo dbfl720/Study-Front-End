@@ -1,51 +1,37 @@
-.box-size-100 {
-    width: 200px;
-    height: 200px;
+.layer {
+    width:130px;
+    height:130px;
 }
 
-
-.flex {
-    display:flex;
-}
-
-
-
-
-#div1 {
+.red {
     background-color: red;
 }
 
-#div2 {
+.green {
     background-color: green;
 }
 
-#div3 {
-    background-color: yellow;
+.flex{
+    display: flex;
 }
 
-#div4 {
+.blue{
     background-color: blue;
 }
 
-
-#div5 {
-    background-color: red;
-    margin : 10px;
-}
-
-#div6 {
-    background-color: green;
-    margin : 10px;
-}
-
-
-
-#div7 {
+.yellow{
     background-color: yellow;
-    margin: 10px;
 }
 
-#div8 {
-    background-color: blue;
-    margin: 10px;
+.margin-top-30{
+    margin-top: 30px;
+}
+
+.margin-right-20 {
+    margin-right: 20px;
+}
+
+
+.marin-left-300 {
+    margin-left:300px;
 }

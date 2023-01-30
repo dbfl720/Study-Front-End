@@ -23,17 +23,25 @@
 }
 
 
-/* 중요!!!! 옆에 자식요소 붙이게 할 수 있다.   정렬시키는 기능도 있다. */
+/* 중요!!!! 옆에   1.자식요소 붙이게 할 수 있다.   2.정렬시키는 기능도 있다. */
 /* 자식요소들이 가운데로 옮긴다. */
 /* space-between : 양옆 끝으로 배치 */
 /* space-around : 양옆 약간 붙어있게 배치 */
+/* 가운데 정렬 : justify-content:center; */
 .flex {
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
+   
 }
 
+
+
+
+/* 인라인을 블록 속성으로 변경 */
+/* 인라인을 display: block을 이용해 바꾸면 사이즈 변경 가능. */
 .text1 {
     background-color: yellow;
+    display:block;
     margin: 20px;
     padding: 20px;
 }
@@ -41,7 +49,7 @@
 
 .text2 {
     background-color: red;
-    width: 100px;
-    height: 100px;
+    width: 350px;
+    height: 200px;
     display: block;
 }
