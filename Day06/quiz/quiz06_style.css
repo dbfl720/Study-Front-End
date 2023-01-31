@@ -1,0 +1,20 @@
+#wrap {
+    width:1200px;
+}
+
+header{
+    height:100px;
+}
+
+nav{
+    height:50px;
+}
+
+.contents {
+    height: 700px;
+}
+
+
+footer {
+    height: 70px;
+}
