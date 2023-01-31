@@ -30,3 +30,14 @@
 # HTML5 시맨틱(Semantic) 태그
 ![스크린샷 2023-01-30 오후 3 46 57](https://user-images.githubusercontent.com/116433637/215406892-73a0a036-1789-4d55-aa18-13c727b6fa91.png)
 ![스크린샷 2023-01-30 오후 3 44 27](https://user-images.githubusercontent.com/116433637/215406909-34fb5212-0a5c-4fbb-a0eb-06482fb38c9e.png)
+
+
+
+
+
+#부트스트랩에서 제공하는 색상 종류
+- 글씨 색상 예) .text-primary
+- 배경 색상 예) .bg-primary
+
+<img width="375" alt="스크린샷 2023-01-31 오후 1 42 21" src="https://user-images.githubusercontent.com/116433637/215667234-1893404c-f62e-4bb3-a3ce-1b035cbd0445.png">
+
