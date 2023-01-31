@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+}
+
+
+/* wrap높이 제거 바람직. 자식들이 알아서 채워줌 */
+#wrap{
+    /* 좌우만 auto, */
+    margin:0 auto;
+    width: 1200px;
+    background-color: #999;
+}
+
+
+/* wrap에서 물려받고 있는 것을 알면  width값 안해도 됨. */
+/* div는 처음에 만들어지면 부모에 물려받는다. */
+header {
+    height: 100px;
+    background-color: yellowgreen;
+}
+
+nav{
+    height: 50px;
+    background-color: hotpink;
+}
+
+
+.contents{
+    height: 450px;
+    background-color: chocolate;
+}
+
+footer {
+    height: 200px;
+    background-color: dodgerblue;
+}
+
+
+.flex {
+    display: flex;
+}
+
+/* contents의 70% 갖는다. */
+.contents > .left {
+    width: 70%;
+    height: 450px;
+    background-color: gray;
+    
+}
+
+.contents > aside {
+    width: 30%;
+    height: 450px;
+    background-color: saddlebrown;
+}
+
+
+/* 누구의 자식인지 이렇게 표시하는게 나중에 찾기 좋음!! */
+.contents > .left > .article1 {
+        width: 700px;
+        height: 200px;
+        background-color: darksalmon;
+        margin-top: 15px;
+        margin-left: 65px;
+
+}

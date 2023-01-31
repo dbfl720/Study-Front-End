@@ -1,0 +1,15 @@
+#wrap {
+    width:1200px;
+}
+
+header{
+    height: 100px;
+}
+
+.contents {
+    height:600px;
+}
+
+footer {
+    height: 100px;
+}

@@ -1,0 +1,44 @@
+/* margin : 0으로 하면 왼쪽으로 붙여서 나옴. */
+body {
+    margin:0;
+}
+
+/* 자식들이 늘어난 만큼 높이는 빼주는게 나음. */
+#wrap {
+    width:1200px;
+    background-color: #999;
+}
+
+header {
+    width: 1200px;
+    height: 150px;
+    background-color: aquamarine;
+}
+
+.contents {
+    width:1200px;
+    height: 750px;
+    background-color: blueviolet;
+}
+
+footer {
+    width: 1200px;
+    height: 100px;
+    background-color: teal;
+}
+
+.logo {
+    width: 200px;
+    height: 150px;
+    background-color: thistle;
+}
+
+nav {
+    width: 1000px;
+    height: 150px;
+    background-color: yellow;
+}
+
+.flex {
+    display:flex;
+}

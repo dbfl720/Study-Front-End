@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>레이아웃 구조</title>
+        <meta charset="utf-8">
+        <link href="quiz03_style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="wrap">
+            <header class="flex">
+                <!-- 먼저 쓴게 왼쪽에 채워짐. -->
+                <div class="logo">로고 자리</div>
+                <nav>메뉴 자리</nav>
+                
+            </header>
+            <section class="contents flex">
+                <section class="content"></section>
+                <section class="content">
+                    <article class="article1">article1</article>
+                    <article class="article2">article2</article>
+                </section>
+            </section>
+            <footer class="flex">
+                <!-- 순서가 왼쪽에서 오른쪽으로.. -->
+                <div class="footer-logo">footer logo</div>
+                <address>copyright</address>
+                <div class="footer-logo">footer logo</div>
+            </footer>
+
+        </div>
+    </body>
+</html>
