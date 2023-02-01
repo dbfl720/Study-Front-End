@@ -1,0 +1,23 @@
+#wrap {
+    /* 좌우 쪽 0으로 넣어서, 가운데로 밀려나게.. */
+    margin:0 auto;
+    width: 1200px;
+    
+}
+
+header{
+    height: 100px;
+}
+
+nav{
+    height: 50px;
+}
+
+.contents {
+    height: 600px;
+}
+
+footer {
+    height: 80px;
+}
+

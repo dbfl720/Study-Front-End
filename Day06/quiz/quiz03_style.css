@@ -1,0 +1,69 @@
+#wrap {
+    width: 1200px;
+}
+
+header {
+    height: 100px;
+}
+
+.contents {
+    height: 500px;
+}
+
+footer{
+    height: 80px;
+}
+
+.logo {
+    font-size: 40px;
+    color:mediumturquoise;
+}
+
+
+.nav  .nav-item .nav-link {
+    color:mediumturquoise;
+}
+
+
+
+article > .logo1 {
+    font-size: 35px;
+    margin-left: 75px;
+    margin-top: 50px;
+}
+
+article> .logo2 {
+    font-size: 40px;
+    margin-left:80px;
+    color:mediumturquoise;
+    text-align: center;
+}
+
+article > .logo3 {
+    font-size: 23px;
+    margin-left:20px;
+}
+
+
+article > .input {
+    margin-left:20px;
+    width: 450px;
+}
+
+article >.button {
+    margin-left: 428px;
+    margin-top: 5px;
+    
+}
+
+footer > .logo4 {
+    font-size: 24px;
+}
+
+footer > .logo5 {
+    text-align: center;
+}
+
+.nav .nav-item .nav-link:hover {
+    color:aqua;
+}

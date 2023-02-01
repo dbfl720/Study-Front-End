@@ -1,0 +1,28 @@
+/*#wrap {height:1000px;}   마지막에 높이를 없앤다. */
+
+header {height:100px;}
+
+nav {height:50px;}
+
+.contents {height:300px;}
+.contents > .content1 {height:300px;}
+.contents > aside {height:300px;}
+
+footer {height:150px;}
+
+/* 부트스트랩은 폰트사이즈 제공안해서 따로 써야됨.  */
+.logo{
+    font-size: 30px;
+}
+
+
+/* 마우스올렸을 때 색깔 변경. */
+/* !important 내가 강제하겠다. 사용하는거 비추임. */
+/* text-dark가 우선순위라서.. 안먹혔던 거임.. */
+/* 직접색깔을 넣는게 좋음. */
+/* .text-컬러 클래스를 주면 hover에서 글자 색상 변경이 불가
+   해결하려면 아래와 같이 !important로 주거나 
+   부트스트랩이 아닌 css로 색상을 지정한다. (권장!) */
+.nav .nav-item .nav-link:hover {
+    color:#fff !important;
+}
