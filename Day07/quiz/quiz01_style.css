@@ -24,11 +24,15 @@ header{
     height: 1px;
 }
 
-
+.nav .nav-item .nav-link:hover {
+    color:seagreen !important;
+}
 
 .ul-text{
     color:darkgray;
 }
+
+
 
 
 
