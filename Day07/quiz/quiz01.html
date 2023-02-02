@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>웹페이지 완성하기1</title>
+        <meta charset="utf-8">
+
+
+        <!-- bootstrap CDN link -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+        <link rel="stylesheet" href="quiz01_style.css" type="text/css">
+    </head>
+    <body>
+        <div id="wrap" class="container">
+            <!-- head -->
+            <header class=" d-flex justify-content-center align-items-center">
+                <!-- head-left -->
+                <div class="logo1  col-3 h-75 justify-content-start">
+                    <!-- ??? justify-content-start ? -->
+                    <div class="input-group mb-2 d-flex ">
+                        <input type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">검색</span>
+                      </div>
+                </div>
+
+                <!-- head-middle -->
+                <div class="logo2  col-5 h-100 ">
+                    <div class="header-logo-groups text-center ">
+                        <!-- display-(1~4)쓸 수 있다. 숫자 크기 조정 -->
+                        <div class="header-logo1">상맨</div>
+                        <div class="header-logo2">상 남자의 패션몰</div>
+                    </div>
+                </div>
+
+                <!-- head-right -->
+                <!-- ul 태그 이용해랏 !!  글자크기 줄여랏! -->
+            
+                <ul class="head-text  d-flex  h-50">
+                   
+                        <li class="nav-item"><a href="#" class="nav-link ul-text">로그인</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link ul-text">회원가입</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link ul-text">고객센터</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link ul-text">장바구니</a></li>
+                  
+                </ul>
+                
+            </header>
+            
+            <!-- nav -->
+            <nav class="bg-light d-flex justify-content-between align-items-center">
+                <ul class="nav nav-fill w-100 justify-content-between">
+                    <li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">Outer</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">Top</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">Shirt</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">Pants</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-dark font-weight-bold">Accessory</a></li>
+                   
+                </ul>
+            </nav>
+
+            <!-- section -->
+            <section class="contents ">
+                <article class=" h-50">
+                    <img src="test05_main_banner.jpg" alt="배너 이미지" width="1110px" height="300">
+                </article>
+                <article class="article2 ">
+                    <h5 class="section-text ">Best seller</h5>
+                  
+                    <div class="d-flex justify-content-between align-items-center">
+                    
+                            <div><img src="test05_best1.jpg" alt="이미지1" width="180px" height="230px" >
+                                <div class="img-text">리얼 가죽 무스탕</div>
+                                <div class="article-text1">87,000원</div>
+                                <div>55,000원</div>
+                            </div>
+                                  
+                            <div><img src="test05_best2.jpg" alt="이미지1" width="180px" height="230px"  >
+                                <div class="img-text">[1+1]기본 버튼 반팔티</div>
+                                <div class="article-text1">15,000원</div>
+                                <div>7,000원</div>
+                            </div>
+                            <div><img src="test05_best3.jpg" alt="이미지1" width="180px" height="230px"  >
+                                <div class="img-text">정장 스타일 무지 조끼</div>
+                                <div class="article-text1">45,000원</div>
+                                <div>40,000원</div>
+                            </div>
+                            <div><img src="test05_best4.jpg" alt="이미지1" width="180px" height="230px"  >
+                                <div class="img-text">스키니핏 씨블루 정장 자켓</div>
+                                <div class="article-text1">53,000원</div>
+                                <div>45,000원</div>
+                            </div>
+                            <div><img src="test05_best5.jpg" alt="이미지1" width="180px" height="230px"  >
+                                <div class="img-text">프리미엄 올라운드 데님셔츠</div>
+                                <div class="article-text1">33,000원</div>
+                                <div>30,000원</div>
+                            </div>
+                      
+  
+                    </div>
+                </article>
+            </section>
+            <!-- footer -->
+            <!-- class="text-center" : 글자가 가운데 정렬 -->
+            <!-- small를 이용 -->
+            <footer class=" justify-content-center align-items-center text-center mt-5">
+                <small class="footer-text">
+                    <div>회사: Sangman 대표 : 김상남</div>
+                    <div>주소: 서울시 종로구 아무개로 32번길 93 패션타운 806호</div>
+                    <div>사업자 번호: 1010101010-1010101000</div>
+                    <div>Copyright 2021. sangman All Rights Reserved.</div>
+                </small>
+            </footer>
+
+        </div>
+    </body>
+</html>
