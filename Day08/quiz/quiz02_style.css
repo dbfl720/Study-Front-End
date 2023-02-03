@@ -1,0 +1,39 @@
+#wrap{
+    width: 1200px;
+}
+
+header{
+    height:100px;
+}
+
+a, a:hover{
+    color:#000;
+}
+
+
+.contents{
+    height: 600px;
+}
+
+
+
+.content1{
+    height: 600px;
+   
+}
+
+footer{
+    height: 100px;
+}
+
+
+/* <!-- 부모한테 줘야함. 부트스트랩에 없음. 자식요소한테 얼마큼 떨어지게 할 것인가.. --> */
+/* 상하 좌우 , (2개만 줄때..) (4개는.. 시계방향!) */
+.content1 {
+    gap:5px 20px;
+}
+
+
+.nav-item:hover {
+    background-color: lightslategray;
+}
