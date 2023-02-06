@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>문자열 다루기</title>
+    </head>
+    <body>
+        <script>
+            let text = "I must do what I want to do.";
+
+            // 문자열의 길이 .length - 함수가 아님 주의  // 공백과 점 모두 포함한 것.
+            console.log(text.length);
+
+
+            // n번째 index의 문자 한개 반환 charAt
+            console.log(text.charAt(5));
+
+            // 특정 문자가 어느 index에 있는지 반환 indexOf
+            console.log(text.indexOf("t"));  // 5 중복이면 첫번째로 찾은 인덱스 위치
+            console.log(text.indexOf("b"));  // -1 없으면 -1 반환.. return
+
+            //특정 문자열이 문장에 포함되어 있는지 확인 includes
+            console.log(text.includes("must"));
+
+
+            // 문자열 치환 replace   *** 중요!! ***  // 처음 나타난 하나밖에 안 바뀐다.
+            console.log(text.replace("I", "You"));  //첫번째는 바꾸고 싶은 문자,  두번째 바꿀문자.
+
+            //정규 표현식 (Regular Expression) 어려워서 누군가가 만든 것을 복사 붙여넣기하면 됨.
+            // 특정 단어의 모든 문자열 치환 - 정규 표현식(Regular Expression)을 사용
+            console.log(text.replace(/I/g, "You"));  //  /g는 매치되는 모든 것  / 즉 I가 있는 모든 것을 You로 바꾼다.
+
+
+            // 문자열의 일부를 추출하기 substring, slice 
+            // must 추출 
+            console.log(text.substring(2, 6)); 
+            console.log(text.slice(2,6));
+
+
+            // 특정 문자를 기준으로 문자열을 분리하고 배열에 저장 split
+            let parts = text.split(" ");
+            console.log(parts);
+
+
+            // *** 많이 쓰임.***  문자열 앞뒤에 있는 공백 제거 trim
+            let userId = "    yu   ri    ";
+            console.log(userId);
+            console.log(userId.trim());
+        </script>
+    </body>
+</html>

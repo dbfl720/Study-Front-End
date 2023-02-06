@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>문자열</title>
+    </head>
+    <body>
+        <script>
+            // 1.
+            // let userId = "my_id_very_simple";
+            // alert("id는 8자를 넘길 수 없습니다. " + userId.substring(0,8));
+
+
+            // 2
+            // let path = "/Users/master/Document/image/city.jpg";
+            // // console.log(path.indexOf("city"));
+            // console.log(path.slice(29,37));
+
+
+
+            // 3.
+                    // let info = {
+                    //     "name":"신보람",
+                    //     "phoneNumber":"01012345678",
+                    //     "introduce":"안녕하세요. 저는 고양이 집사입니다.   "
+                    // };
+
+                    // console.log("이름:" + info.name + " 전화번호: " + info.phoneNumber + " 소개: "+ info.introduce);
+
+                    
+
+
+
+            // 4.
+            // for문 돌리기.? 
+            // lsit에 넣기.
+            let membersString = "루피:19931005,조로:19890513,나미:19970705,쵸파:20040932";
+
+
+            let parts = membersString.split(/[:, ,]/);  // 정규식 자르기.
+           // console.log(parts);
+              
+                let person = {};
+                person[parts[0]] = parts[1];
+                person[parts[2]] = parts[3];
+                person[parts[4]] = parts[5];
+                person[parts[6]] = parts[7];
+               
+               // console.log(person);
+                
+                let keys = Object.keys(person);
+                for (let key of keys) {
+                    console.log("name: " + key + ", birth: " + person[key]);
+                }
+            
+
+
+
+        //         // 5.
+                for (let key of keys) {
+                    if (person[key].includes("07")) {
+                        console.log(key);
+                    }
+                }
+
+        </script>
+    </body>
+</html>

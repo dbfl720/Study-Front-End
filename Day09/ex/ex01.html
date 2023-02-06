@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <titl>자바스크립트 예제</titl>
+    </head>
+    <body>
+        <script>
+            // 반복문
+            
+            // 0 ~ 4 => 5번
+            // 자료형 없음.
+            // for (let i = 0; i < 5; i++) {
+            //     document.write(i + "<br>");  // 줄바꿈. br 태그.
+            // }
+
+            // 배열(Array)
+            let arr = [10, 20, 30, 40];
+            arr.push(50);  // 값이 추가적으로 들어감.
+            arr.push(60);
+            document.write(arr);
+
+
+            // money in pocket
+            // index in arr
+            // 배열의 요소만큼 인덱스를 얻는다. // 왼쪽 담겨지는 값이 index가 됨.
+            for (let idx in arr ) {
+                console.log("index: " + idx + "::::::::" + arr[idx]);
+            }
+
+            // 배열의 값을 바로 얻는다. money in pocket
+            for (let value of arr) {
+                console.log("값: " + value);
+            }
+
+
+            for (let value of arr) {
+                console.log("값: " + value);
+            }
+
+
+            // dictionary, 자바스크립트 객체
+            // key-value 쌍으로 되어있는 자료구조 (Java의 map과 비슷)
+            // 자바 map : {"키1" = "값", "키2" = "값"}
+            // 자바스트립트 dic : {"키1" : "값", "키2" : "값"}   // 중요함!!!!!!!
+            let scoreInfo = {"subject":"국어", "score":98, "rank":3};
+            console.log(scoreInfo);
+
+            let person = {};
+            //  key      = value 
+            person["name"] = "홍유리";
+            person["age"] = 30;
+            person["gender"] = "여자";  // {name: '홍유리', age :30, gender: '여자'}
+
+
+
+            // *******!!! key로 value로 접근하기  **** 중요!!!
+            console.log("이름: " + person["name"]);
+            console.log("이름: " + person.name); // string으로 되어있으면 .으로 표현됨.
+            console.log("나이: " + person["age"]);
+            console.log("나이: " + person.age);
+            console.log("성별: " + person["gender"]);
+            console.log("성별: " + person.gender);
+
+
+
+
+
+
+            // 같은 key에 값 넣기 => 수정 가능!!! 
+            person["age"] = 30 + 1;
+            console.log(person);
+
+
+            // key로 값 삭제하기
+            delete person["gender"];
+            console.log(person);
+
+
+            // 특정 키가 존재하는지 여부 확인
+            if ("age" in person) {
+                console.log("나이 정보가 존재합니다.")
+            }
+
+
+
+            // 반복문
+            let keys = Object.keys(person);
+            console.log("keys:" + keys); // [name, age]
+            for (let key of keys) {
+                console.log(key + ":" + person[key]);   // name:홍유리   age: 31   // .은 키명만 쓸 수 있음. 여기서는 Key가 변수명이라 안됨.
+
+            }
+
+        </script>
+    </body>
+</html>
