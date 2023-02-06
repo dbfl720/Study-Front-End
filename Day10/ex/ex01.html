@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title>제목</title> 
+    </head> 
+    <body> 
+        <h1 class="class-h1">Hello World!</h1> 
+        <div class="class-div" id="contents"> 
+            <p class="class-p" id="p1" name="p_name">내 이름은 OO이다.</p> 
+            <p class="class-p" id="p2" name="p_name">내 이름은 ㅁㅁ이다.</p> 
+            <a class="class-a" href="https://marondal.com" target="_blank">마론달로 이동</a> 
+        </div> 
+
+
+        <script>
+            // node를 가져오는 장점 : 부모와 자식간 태그, 형제태그, 자식 요소 찾기 등등 원하는
+            // 태그를 근처에서 찾는데 활용하는데 좋음!! 
+
+            // id로 node 가져오기 : id는 문서에서 한개이므로 한개의 노드를 얻는다.
+            let p1 = document.getElementById("p1");
+            console.log(p1);
+            
+
+            // class로 node들 가져오기 (여러개 존재 - 무조건 복수개로 가져옴)
+            let pClass = document.getElementsByClassName("class-p");
+            console.log(pClass);
+
+            // 태그명으로 node들 가져오기
+            let pTags = document.getElementsByTagName("p");
+            console.log(pTags);
+
+            //name으로 node들 가져오기
+            let pNames = document.getElementsByName("p_name");
+            console.log(pNames);
+        </script>
+    </body> 
+</html>

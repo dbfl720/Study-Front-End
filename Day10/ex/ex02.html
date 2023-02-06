@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jquery 예제</title>
+
+        <!-- jquery cdn link -->
+        <script
+        src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type = "text/css" href="ex02_style.css">
+
+        <!-- 이번에만 script를 head에 넣은 것임. 원래는 body -->
+        <script>
+            // 앞으로 항상 해야하는것! *****
+            // !!*****ready 함수: DOM Tree가 모두 구성된 후 불려지는 함수
+            $(document).ready(function(){
+                // 1) 확인 버튼 누르면 input에 담긴 내용 alert 띄우기
+                // id로 node 태그 가져오기 (jquery 방법임.)         
+                // *** 중요 *** 자주 쓰임****  
+                $("#confirmBtn").on("click", function() {
+                   // alert("버튼 클릭");  // 무조건 먼저 확인하기.
+                   // id ="text"인 value 가져오기
+                   let text = $("#text").val();  // getting하기
+                  // alert(text);
+
+                  // text validation 유효성 검사
+                  text = text.trim();
+                  if (text.length < 1) {
+                    alert("텍스트 영역에 글자를 써주세요.");
+                    return;  // continue와 같음. 빠져나감. 함수종료.
+                  }
+
+
+                  // 텍스트 복사
+                  $('#copyText').val(text);  // setting
+
+                }); // --1 끝
+
+                // 2) div 안에 글씨 넣기
+                $("#textIdDivBtn").on("click", function() {
+                    // alert("aaaaa");
+
+                    // 태그 사이에 글자를 넣는다. text()
+                    $('.box').text("박스 안에 글씨!!!");
+                });
+
+
+
+                // 3. 상자 나타내기/ 없애기 toggle
+                $(".link1").on("click", function() {
+                    // alert("aaaa");
+
+                  //  상자 없애기
+                 //  $('#box1').css("display","none");
+
+                //    // (1) 토글 상자가 있으면 없애고 없으면 나타내기
+                //    if ($('#box1').css("display") == "none") { // 상자가 없는 겨우
+                //        $("#box1").css("display", "block");
+                //    } else { // 상자가 있는 경우
+                //         $('#box1').css("display", "none");
+                //    }
+
+
+
+
+                // (2) 토글 
+                if($('#box1').is(":visible")) { // 보여짐
+                    $('#box1').hide();
+                } else { // 숨겨져 있음
+                    $('#box1').show();
+                }
+                })
+
+
+                // 4) 클릭하면 상자 글씨 상태 변경 - toggle
+                $("#fontChangeBtn").on("click", function() {
+                   //  alert("aaaasdfdf");
+                 // $(".box").addClass("box-font");  // class를 추가할거다. 이름만 써야됨 (.쓰면 안됨.)
+                
+
+                 // 태그 안에 box-font 클래스 있는지 확인
+                 if ($('.box').hasClass("box-font")) {
+                     // 있을 때는 제거
+                     $('.box').removeClass("box-font");
+                 } else {
+                    // 없을 때는 추가
+                    $('.box').addClass("box-font");
+                 }
+                
+                });
+
+
+
+                // 5) href 속성값 변경하기
+                $('#gotoGoogle').on("click", function() {
+                    // alert("aaaaa");
+                    $('#gotoGoogle').attr("href", "https://google.com");
+                });
+
+            });  // -- ready 끝
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <!-- 1)확인 버튼 누르면 input에 담긴 내용 alert 띄우기 -->
+        텍스트 : <input type="text" id="text">
+        <button type="button" id="confirmBtn">확인</button><br>
+        복사된 텍스트: <input type="text" id="copyText">
+
+
+        <!-- 2) div 안에 글씨 넣기 -->
+        <div id="box1" class="box"></div>
+        <input type="button" id="textIdDivBtn"  value="클릭하면 박스에 글자가 들어갑니다.">
+        <br><br>
+
+
+
+        <!-- 3) 상자 없애기 / 나타내기 toggle-->
+        <a href="#" class="link1">박스가 나타났다 사라졌다</a><br><br>
+
+
+
+        <!-- 4) 클릭하면 상자 글씨 상태 변경 -->
+        <button type="button" id="fontChangeBtn">클릭하면 상자 글씨 상태가 바뀝니다.</button>
+    
+    
+    
+        <!-- 5) a 태그의 href 속성(attribute) 변경하기 --> 
+        <a href="https://naver.com" target="_blank" id="gotoGoogle">클릭하면 구글로 갑니다.</a>
+    
+    </body>
+</html>
