@@ -14,24 +14,147 @@
         <script>
         // ready 함수
         $(document).ready(function() { 
-            // 1. 확인 버튼 
-            $("#confirmBtn").on("click", function() {
-               // alert("버튼 클릭");
-               if ($("#boxId"))
-               if (($("#password").val(text).equals($("#confirmPassword").val(text))
+
+            // 1. 비밀번호 일치 
+            $("#confirmBtn").on("click", function() {        
+
+               let password = $("#password").val();  // getting
+               let confirmPassword = $("#confirmPassword").val(); // getting
+               password = password.trim();
+               confirmPassword = confirmPassword.trim();
+
+               // check password
+               if (password == "" || password == null) {
+                alert("비밀번호를 입력해주세요");
+            } else if (password == confirmPassword) {
+                alert("확인 완료!");
+            } else {
+                alert("비밀번호가 일치하지 않습니다.");
+            }
+
+
+         });  // -- 1 끝.
+
+
+
+
+            //2. 금칙어 포함 여부 확인
+            $("#searchBtn").on("click", function() {
+
+                let bannedWords = ["십장생", "시베리아", "조카신발", "쌍쌍바", "십원짜리"];
+                let swearWords = $("#swearWords").val();  // getting
+
+                // check swear
+
+               for(let i = 0; i < bannedWords.length; i++) {
+                    if (swearWords.indexOf(bannedWords[i] > -1)) {
+                        alert("금칙어가 포함되어 있습니다. 검색할 수 없습니다.")
+                        return; // continue와 같음. 반복문 빠져나감.
+                    }
+
+               }
+            })  // - 2 끝
+
+
+           
+
+            // 3.더보기
+            $("#seeBtn").on("click", function() {
+               
+
+                // 추가설명 문장
+                if($('#explain').is(":visible")) {
+                    $('#explain').hide();
+                } else {
+                    $('#explain').show();
+
+                }
+
+
+                // 더보기 -> 닫기.?
+
+            })  // -- 3 끝
+
+
+
+
+            // 4.사각형 바꾸기
+            $("#changeBtn").on("click", function( ){ 
+                if ($(".box").hasClass("box2")) {
+                    $(".box").removeClass("box2"); // 있을 때 제거
+                } else {
+                    $(".box").addClass("box2"); // 없을 때 추가
+                }
+
+            });  // -- 4 끝
+
+
+
+
+             // 5. 이미지 교체
+            $("#pastBtn").on("click", function() {
+              
+                    $("#img1").attr('src','img2.jpg')
+         
+                    $("#img2").attr('src','img1.jpg')
+    
+           
+                
+            
+            }); 
+
+            $("#nextBtn").on("click", function() {
+                $("#img1").attr('src','img3.jpg')
+                $("#img3").attr('src','img1.jpg')
+
             });
+
+
+
+
+
+
 
         }); // ready 끝
 
-        // 5. 배열을 이용해라.
+        
         
         </script>
     
     </head>
     <body>
-        비밀번호 : <input type="text" id="password">
-        비밀번호 확인 : <input type="text" id="confirmPassword">
-        <button type="button" id="confirmBtn">확인</button>
+        <!-- 1.비밀번호 일치 -->
+        <h1>1. 비밀번호 일치</h1>
+        비밀번호 : <input type="password" id="password">
+        비밀번호 확인 : <input type="password" id="confirmPassword">
+        <button type="button" id="confirmBtn">확인</button> <br><br>
 
+
+        <!-- 2. 금칙어 포함 여부 확인-->
+        <h1>2. 금칙어 포함 여부 확인</h1>
+        <input type="text" id="swearWords">
+        <button type="button" id="searchBtn">검색</button>
+
+
+        <!-- 3. 더보기 -->
+        <h1>3. 더보기</h1>
+        <button type="button" id="seeBtn">더보기</button>
+        <div id="explain">숨겨져 있던 추가 설명입니다!!!<br>
+            더보기를 누르면 나옵니다.
+        </div>
+
+
+        <!-- 4.사각형 바꾸기 -->
+        <h1>4. 사각형 바꾸기</h1>
+        <div class="box"></div><br>
+        <button type="button" id="changeBtn">교체</button>
+
+
+
+        <!-- 5.이미지 교체 -->
+        <h1>5. 이미지 교체</h1>
+        <button type="button" id="pastBtn">이전</button>
+        <img src="img1.jpg" id="img1" alt="이미지1"  width="200px" height="200px">
+        <button type="button" id="nextBtn">다음</button>
     </body>
 </html>

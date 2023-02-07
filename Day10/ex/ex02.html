@@ -43,7 +43,7 @@
                     // alert("aaaaa");
 
                     // 태그 사이에 글자를 넣는다. text()
-                    $('.box').text("박스 안에 글씨!!!");
+                    $(".box").text("박스 안에 글씨!!!");
                 });
 
 
@@ -53,7 +53,7 @@
                     // alert("aaaa");
 
                   //  상자 없애기
-                 //  $('#box1').css("display","none");
+                //   $('#box1').css("display","none");
 
                 //    // (1) 토글 상자가 있으면 없애고 없으면 나타내기
                 //    if ($('#box1').css("display") == "none") { // 상자가 없는 겨우
@@ -65,13 +65,18 @@
 
 
 
-                // (2) 토글 
+                // (2) 토글 - on/off switch의 개념
                 if($('#box1').is(":visible")) { // 보여짐
                     $('#box1').hide();
                 } else { // 숨겨져 있음
                     $('#box1').show();
                 }
                 })
+
+
+
+
+
 
 
                 // 4) 클릭하면 상자 글씨 상태 변경 - toggle
