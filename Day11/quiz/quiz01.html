@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <titl>선생님풀이 동적 태그 다루기(1)</titl>
+        <!-- jquery cdn link -->
+        <script
+        src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="quiz01_style.css">
+
+        <style>
+            .hide-box {
+                display: none;
+            }
+
+
+            .red-samll {
+                background-color: red;
+                width:100px;
+                height: 100px;
+            }
+
+
+            .green-large {
+                background-color: green;
+                width: 300px;
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> 1. 비밀번호 일치</h1>
+        비밀번호: <input type="password" id="pw">
+        비밀번호 확인: <input type="password" id="pwConfirm">
+        <button type="button" id="pwConfirmBtn">확인</button>
+
+
+        <h1>2. 금칙어 포함 여부 확인</h1>
+        <input type="text" id="search">
+        <button tyep="button" id="searchBtn">검색</button>
+
+
+
+        <h1>3. 더보기/닫기 </h1>
+        <button type="button" id="moreBtn">더보기</button>
+        <!-- style="display:none" 인라인은 좋은 방식아님. 클래스부여해서하는게 좋음-->
+        <div id="moreDesc" class="hide-box">
+            숨겨져 있던 추가 설명입니다!!!<br>
+        더보기를 누르면 나옵니다.
+        </div>
+
+
+
+        <h1>4. 사각형 바꾸기</h1>
+        <!-- id와 class에서는 id가 우선순위. -->
+        <div id="box" class="red-samll"></div>  
+        <button type="button" id="changeBoxBtn">교체</button>
+
+
+
+        <h1>5. 이미지 교체</h1>
+        <button type="button" id="prev">이전</button>
+        <img id="pic" src="img1.jpg" alt="이미지" width="300px">
+        <button type="button" id="next">다음</button>
+
+
+
+        <script>
+            $(document).ready(function() {
+                // 1. 비밀번호 일치
+                $("#pwConfirmBtn").on("click", function() {                 
+                   let pw = $("#pw").val();
+                   let pwConfirm = $("#pwConfirm").val();
+
+                   // validation  - 보통 else 안쓰고 if문 씀.
+                    if (pw == '' || !pwConfirm) {
+                        alert("비밀번호를 입력해주세요");
+                        return;  // 함수 종료!!
+                    }
+                    if (pw != pwConfirm) {
+                        alert("비밀번호가 일치하지 않습니다.");
+                        return;  // 함수 종료!
+                    }
+
+                    alert("확인 완료");
+
+
+
+                });   // 1 -- 끝
+
+
+                    //2. 금칙어 포함 확인
+                    $('#searchBtn').on("click", function() {
+                        let bannedWords = ["십장생", "시베리아", "조카신발", "쌍쌍바", "십원짜리"];  //제일 가까이 두는ㄱ ㅔ좋음.
+                        let search = $("#search").val().trim();
+                        
+
+                        // validation
+                        // 값이 필요하기때문.
+                        for (let bannedWord of bannedWords) {
+                            if (search.includes(bannedWord)) {
+                                alert("금칙어가 포함되어 있습니다. 검색할 수 없습니다.");
+                                return;
+                            }
+                        }
+                    });  // ---2
+
+
+
+
+                    // 3. 
+                    // $('#moreBtn').on("click", function() {
+                    //     // 상자가 나타나 있는가?
+                    //     if ($("#moreDesc").is(":visible")) { // 상자가 나타나있음.
+                    //         $('#moreDesc').hide();  
+                    //         // '더보기' 버튼으로
+                    //        $('#moreBtn').text("더보기"); // 버튼 텍스트 글자 바꾸기 .text()
+                    //     } else {  // 상자가 숨겨져있음.
+                    //         $("moreDesc").show();
+                    //         // '닫기' 버튼으로.
+                    //         $('#moreBtn').text("닫기");
+                    //     }
+                    // });
+
+
+
+                    // 3. 
+                    $('#moreBtn').on("click", function () {
+                        if ($("#moreDesc").is(":visible")) {
+                            $('#moreDesc').hide();
+                            $('#moreBtn').text("더보기");
+                        } else {
+                            $("#moreDesc").show();
+                            $('#moreBtn').text("닫기");
+                        }
+                    });
+
+
+
+
+
+                    //4. 사각형 교체
+                    $('#changeBoxBtn').on('click', function() {
+                        // .red-small 보여지는가?
+                        if ($("#box").hasClass("red-small")) {
+                            // 빨간색 -> 초록색
+                            $('#box').addClass("green-large");   // . 안붙이고 클래스명만 붙임!!!
+                            $('#box').removeClass("red-small");
+                        } else {
+                            //초록색 -> 빨간색
+                            $('#box').addClass("red-small");
+                            $('#box').removeClass("green-large");
+                        }
+                        
+                    });
+
+
+
+
+                    //5.
+                    var imgs = ['img1', 'img2', 'img3'];
+                    var currentIndex = 0;
+
+                    $('#prev').click(function() {
+                        if(currentIndex == 0) {
+                            currentIndex = 2;
+                        } else {
+                            currentIndex--;
+                            
+                        } 
+                        $('#pic').attr("src", imgs[currentIndex] + '.jpg');
+                    });
+
+                    $('#next').click(function() {
+                        if(currentIndex == 2) {
+                            currentIndex = 0;
+                        } else {
+                            currentIndex++;
+                            
+                        } 
+                        $('#pic').attr("src", imgs[currentIndex] + '.jpg');
+                    });
+
+
+            });   // -- ready 끝
+        </script>
+    </body>
+</html>

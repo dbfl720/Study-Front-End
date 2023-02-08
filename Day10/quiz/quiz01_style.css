@@ -1,14 +1,16 @@
-.box {
+.red-box {
     width:100px;
     height: 100px;
     background-color: red;
 }
 
 
-.box2 {
+.green-box {
     width: 500px;
     height: 500px;
     background-color: green;
 }
 
-
+.hide-box {
+    display: none;
+}

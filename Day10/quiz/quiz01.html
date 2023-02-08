@@ -20,16 +20,19 @@
 
                let password = $("#password").val();  // getting
                let confirmPassword = $("#confirmPassword").val(); // getting
-               password = password.trim();
-               confirmPassword = confirmPassword.trim();
 
-               // check password
-               if (password == "" || password == null) {
+               // validation
+            if (password == "" || !confirmPassword) {
                 alert("비밀번호를 입력해주세요");
-            } else if (password == confirmPassword) {
+                return; // 함수 종료!
+            } 
+            if (password == confirmPassword) {
                 alert("확인 완료!");
-            } else {
+                return;
+            } 
+            if (password != confirmPassword) {
                 alert("비밀번호가 일치하지 않습니다.");
+                return;
             }
 
 
@@ -42,18 +45,25 @@
             $("#searchBtn").on("click", function() {
 
                 let bannedWords = ["십장생", "시베리아", "조카신발", "쌍쌍바", "십원짜리"];
-                let swearWords = $("#swearWords").val();  // getting
+                let swearWords = $("#swearWords").val().trim();  // getting
 
-                // check swear
-
-               for(let i = 0; i < bannedWords.length; i++) {
-                    if (swearWords.indexOf(bannedWords[i] > -1)) {
-                        alert("금칙어가 포함되어 있습니다. 검색할 수 없습니다.")
-                        return; // continue와 같음. 반복문 빠져나감.
+                // validation
+                for (let bannedword of bannedWords) {  // 반복문에서 값 얻기.
+                    if(swearWords.includes(bannedword)){
+                        alert("금칙어가 포함되어 있습니다. 검색할 수 없습니다.");
+                        return;
                     }
+                }
 
-               }
-            })  // - 2 끝
+                if (swearWords == "" || !swearWords) {
+                    alert("검색어를 써주세요.")
+                    return;
+                }
+
+                      
+
+               
+            });  // - 2 끝
 
 
            
@@ -65,25 +75,31 @@
                 // 추가설명 문장
                 if($('#explain').is(":visible")) {
                     $('#explain').hide();
+                    $('#seeBtn').text('더보기');  // 글씨 바꾸기 메소드.
                 } else {
                     $('#explain').show();
+                    $('#seeBtn').text('닫기');
 
                 }
 
-
-                // 더보기 -> 닫기.?
 
             })  // -- 3 끝
 
 
 
 
+
             // 4.사각형 바꾸기
             $("#changeBtn").on("click", function( ){ 
-                if ($(".box").hasClass("box2")) {
-                    $(".box").removeClass("box2"); // 있을 때 제거
+                if ($("#box").hasClass("red-box")) {
+                    // 빨간색 -> 초록색
+                    $("#box").addClass("green-box");
+                    $("#box").removeClass("red-box"); // 있을 때 제거
+                   
+                    
                 } else {
-                    $(".box").addClass("box2"); // 없을 때 추가
+                    $("#box").addClass("red-box"); // 없을 때 추가
+                    $("#box").removeClass("green-box");
                 }
 
             });  // -- 4 끝
@@ -91,27 +107,32 @@
 
 
 
+
              // 5. 이미지 교체
+             var imgs = ['img1', 'img2', 'img3'];
+             var currentIndex = 0;
+
             $("#pastBtn").on("click", function() {
-              
-                    $("#img1").attr('src','img2.jpg')
-         
-                    $("#img2").attr('src','img1.jpg')
-    
-           
-                
+               if(currentIndex == 0) {
+                  currentIndex = 2;
+               } else {
+                currentIndex--;
+               }
+               $('#pic').attr("src", imgs[currentIndex] + '.jpg');               
             
             }); 
 
+
+
             $("#nextBtn").on("click", function() {
-                $("#img1").attr('src','img3.jpg')
-                $("#img3").attr('src','img1.jpg')
+               if(currentIndex == 2) {
+                currentIndex = 0;
+               } else {
+                currentIndex++;
+               }
+                $('#pic').attr("src", imgs[currentIndex] + '.jpg');
 
-            });
-
-
-
-
+            });  // --- 5 끝.
 
 
 
@@ -139,14 +160,14 @@
         <!-- 3. 더보기 -->
         <h1>3. 더보기</h1>
         <button type="button" id="seeBtn">더보기</button>
-        <div id="explain">숨겨져 있던 추가 설명입니다!!!<br>
+        <div id="explain" class="hide-box">숨겨져 있던 추가 설명입니다!!!<br>
             더보기를 누르면 나옵니다.
         </div>
 
 
         <!-- 4.사각형 바꾸기 -->
         <h1>4. 사각형 바꾸기</h1>
-        <div class="box"></div><br>
+        <div id="box" class="red-box"></div><br>
         <button type="button" id="changeBtn">교체</button>
 
 
@@ -154,7 +175,7 @@
         <!-- 5.이미지 교체 -->
         <h1>5. 이미지 교체</h1>
         <button type="button" id="pastBtn">이전</button>
-        <img src="img1.jpg" id="img1" alt="이미지1"  width="200px" height="200px">
+        <img src="img1.jpg" id="pic" alt="이미지1"  width="200px" height="200px">
         <button type="button" id="nextBtn">다음</button>
     </body>
 </html>
