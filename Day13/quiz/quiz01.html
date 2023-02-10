@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>외부 라이브러리 연동</title>
+        <link rel="stylesheet" type="text/css" href="quiz01_style.css">
+        
+        <!-- ** 순서 중요 : 1. jquery 2.css  3.js 2개. ***  -->
+        <!-- jquery 원본.(slim이면 안됨. 무조건 위에 있어야함.-->
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- bootstrap (slim 뺐음), jquery가 위에 있기 때문에 나머지를 가져오기-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+         <!-- datepicker / 원래는 3개를 가져와야 하는데 맨 위에 jquery가 있기 때문에 나머지 2개 가져옴. -->
+        <!-- 원본 위에 배치하고 밑에 부가적인 부분 배치.-->
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <!-- jquery-ui -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+       
+        <!-- style.css 연동 -->
+        <link rel="stylesheet" href="quiz01_style.css" type="text/css">
+
+
+    </head>
+    <body>
+            <div class="event-box">
+                <h1 class="font-weight-bold">행사 일정 입력</h1>
+                <div>행사 제목</div>
+                <!-- form-controle은 혼자 행을 차지함. input칸이 하늘색으로 바뀜.-->
+                <input type="text" class="form-control mb-3"> 
+                <!-- 수직정렬: align-items-center / 좌우가운데 정렬: justify-content-between -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>시작일</span>
+                        <input type="text" class="form-control col-4" id="startDate">
+                        <span>종료일</span>
+                        <input type="text" class="form-control col-4" id="endDate">
+                    </div>
+                    <!-- btn-block // w-100 : 부모의 가로값 만큼 100프로 늘어남. -->
+                    <button type="button" class="btn btn-info mt-3 btn-block">저장</button>
+            </div>      
+           
+
+          <script>
+            $(document).ready(function () {
+                // 모든 데이트피커에 적용
+                $.datepicker.setDefaults({
+                    dateFormat:"yy-mm-dd"
+                    , dayNamesMin:["일", "월", "화", "수", "목", "금", "토",]  // 요일을 한글로 변경
+                });
+
+                // 오늘 날짜로 이동하는 함수
+                 $.datepicker._gotoToday = function(id) {
+                    $(id).datepicker('setDate', new Date()).datepicker('hide').blur();
+                 };
+
+                //시작일
+                $('#startDate').datepicker({
+                    showButtonPanel:true  // 오늘 버튼 노출
+                    , minDate:0  // 오늘과 그 이후만 선택 가능
+                    // 시작일이 선택되는 순간 종료일의 minDate 변경(시작일 선택된 날짜)
+                    , onSelect:function(dateText) {
+                       // alert(dateText);
+                       $("#endDate").datepicker("option", "minDate", dateText);
+                    //    option: 남의 데이터피커에 옵션을 넣는다. // minDate를 dateText로 세팅할거다.
+                    }
+                });
+               
+
+                // 종료일
+                $('#endDate').datepicker()
+                
+              
+
+                
+
+
+            }); // -- ready 끝
+
+
+          </script>
+    </body>
+</html>
