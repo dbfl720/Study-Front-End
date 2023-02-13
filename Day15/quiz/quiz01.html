@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>통나무 팬션</title>
+        <meta charset="utf-8">
+
+        <!-- ** 순서 중요 : 1. jquery 2.css  3.js 2개. ***  -->
+        <!-- jquery 원본.(slim이면 안됨. 무조건 위에 있어야함.-->
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- bootstrap (slim 뺐음), jquery가 위에 있기 때문에 나머지를 가져오기-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+         <!-- datepicker / 원래는 3개를 가져와야 하는데 맨 위에 jquery가 있기 때문에 나머지 2개 가져옴. -->
+        <!-- 원본 위에 배치하고 밑에 부가적인 부분 배치.-->
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <!-- jquery-ui -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+       
+        <!-- style.css 연동 -->
+        <link rel="stylesheet" href="quiz01_style.css" type="text/css">
+    </head>
+    <body>
+        <div id="wrap" class="container">
+            <!-- header -->
+            <header class=" d-flex justify-content-center align-items-center">
+                <h1>통나무 팬션</h1>
+            </header>
+
+
+            <!-- nav -->
+            <nav>
+                <ul class="nav-ul nav-fill w-100 d-flex align-items-center justify-content-around">                   
+                    <li class="ul-menu"><a href="#" class="nav-link font-weight-bold">팬션소개</a></li>
+                    <li class="ul-menu"><a href="#" class="nav-link font-weight-bold">객실보기</a></li>
+                    <li class="ul-menu"><a href="#" class="nav-link font-weight-bold">예약안내</a></li>
+                    <li class="ul-menu"><a href="#" class="nav-link font-weight-bold">커뮤니티</a></li>
+                </ul>     
+            </nav>
+
+
+
+            <!-- section -->
+            <section class="">
+                <!-- article1 -->
+                <article class=" article1">
+                    <img src="house.jpg" alt="이미지1" width="1100" class="article-fill w-100" height="500">
+                </article>
+
+                <!-- article2 -->
+                <article class=" article2 d-flex">
+                        <!-- cotent1 -->
+                        <div class="content1">
+                            <div class="content1_text font-weight-bold"><a href='#' class="content1-link">실시간 예약하기</a></div>
+                        </div>
+
+                        <!-- content2 -->
+                        <div class=" content2">
+                            <div class="d-flex content2_text1"> 
+                                <div class="checkReservation">예약 확인 </div>
+                                <div class="members">
+                                    <label> 회원<input type="radio" name="siteMember" id="member" value="member" checked></label>
+                                    <label class="noMember"> 비회원<input type="radio" name="siteMember" id="noMember" value="noMember"></label>
+                                </div>
+                            </div>
+
+                            <div class="idPasswordButton">
+                                <div class="idPassword  d-flex">
+                                <div class="id">아이디:</div>
+                                    <input type="text" class="idInput form-control">
+                                </div>
+
+
+                                <div class="idPassword2  d-flex">
+                                    <div class="id2">비밀번호:</div>
+                                    <!-- form-control 쓰면 input칸이 이쁘게 변함!!  -->
+                                    <input type="password" class="idInput form-control">
+                                </div>
+
+                                <button type="button" class="searchButton btn btn-success">조회 하기</button>
+                            </div>
+                        </div>
+
+                        <!-- content3 -->
+                        <div class="content3 font-weight-bold"><small>예약문의:</small> 010-000-1111</div>
+
+
+                </article>
+
+            </section>
+
+            <!-- footer -->
+            <footer>
+            <div class="footerText">
+             <small class="footerText">
+                <div>제주특별자치도 제주시 예월읍</div>
+                <div>사업자등록번호: 111-22-255222 / 농어촌민박사업자지정 / 대표:김통목</div>
+                <div>Copyright 2025 tongnamu All right reserved</div>
+             </small>
+            </div>
+            </footer>
+        </div>
+
+    </body>
+</html>
