@@ -1,0 +1,154 @@
+#wrap{
+    width:1200px;
+}
+
+header{
+    height:100px;
+}
+
+nav{
+    height:40px;
+    background-color: rgb(209, 144, 58);
+}
+
+
+nav > ul > li{
+    list-style: none;
+    
+}
+
+nav > .nav-ul {
+    padding-left:0px;
+}
+
+.nav-link{
+    color:white;
+}
+.nav-link:hover {
+    color:black;
+}
+
+section{
+    height:800px;
+}
+
+section > .article1{
+    height:500px;
+}
+
+section > .article2{
+    height:300px;
+}
+
+
+.article2 > .content1{
+    width:370px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background-color:sienna;
+}
+
+.content1-link {
+    color:white;
+}
+
+.content1-link:hover {
+    color:black;
+    text-decoration: none;
+}
+
+
+.article2 > .content2{
+    width:370px;
+    color:white;
+    background-color:rgb(209, 144, 58);
+}
+
+.checkReservation {
+    font-size: 28px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.content2_text1 {
+    margin-top: 10px;
+}
+
+.content2_text1 > .members{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.members > .noMember {
+    margin-left: 15px;
+}
+
+
+
+
+.idPassword {
+    color:white;
+    justify-content: center;
+    align-items: center;
+}
+
+.id{
+    margin-top: 20px;
+}
+
+
+.idPassword2 {
+    color:white;
+    padding-left: 23px;
+}
+
+.id2{
+    margin-top: 20px;
+}
+
+
+
+.idInput {
+    width:240px;
+    margin-left:10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+
+
+
+.searchButton{
+    margin-top: 20px;
+    margin-left: 245px;
+}
+
+
+
+
+.article2 > .content3{
+    width:370px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background-color:sienna;
+    font-size: 35px;
+    color:white;
+
+}
+
+footer{
+    height:80px;
+}
+
+.footerText{
+    margin-left: 30px;
+    margin-top: -10px;
+    padding-top: -10px;
+    color:grey;
+}
