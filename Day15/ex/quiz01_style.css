@@ -40,6 +40,12 @@ section > .article2{
     height:300px;
 }
 
+/* 오른쪽 정렬 : float: right */
+.submit-btn { float: right; margin-right: 40px; margin-top:15px;}
+
+
+
+
 
 .article2 > .content1{
     width:370px;

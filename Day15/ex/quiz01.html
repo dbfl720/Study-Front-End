@@ -49,7 +49,7 @@
             <section class="">
                 <!-- article1 -->
                 <article class=" article1">
-                    <img src="house.jpg" id=bannerImg alt="이미지1" width="1100" class="article-fill w-100" height="500">
+                    <img src="test06_banner1.jpg" id=bannerImage alt="이미지1" width="1100" class="article-fill w-100" height="500">
                 </article>
 
                 <!-- article2 -->
@@ -65,48 +65,50 @@
                                 <div class="d-flex content2_text1"> 
                                     <div class="checkReservation">예약 확인 </div>
                                     <div class="members">
-                                        <label> 회원<input type="radio" name="member" id="member" value="member" checked></label>
-                                        <label class="noMember"> 비회원<input type="radio" name="member" id="noMember" value="noMember"></label>
+                                        <!-- **** label - name 같게 해야함. 둘 중 하나 선택하게 해야 해서.. -->
+                                        <!-- **** label - value는 다르게 해야함!  -->
+                                        <label> 회원<input type="radio" name="member" value="member" checked></label>
+                                        <label class="noMember"> 비회원<input type="radio" name="member" value="nonMember"></label>
                                     </div>
                                 </div>
                            
                                 <!-- 아이디  비밀번호 (회원용) -->
-                                <div id="memberBox" class="d-none">
+                                <div id="memberBox">
                                     <!-- 오른쪽 정렬 : d-flex justify-content-end -->
-                                    <div class="idPassword  d-flex ">
-                                    <div class="id">아이디:</div>
-                                        <input type="text" class="idInput form-control">
+                                    <div class="idPassword  d-flex align-items-center">
+                                    <div>아이디:</div>
+                                        <input id="id" type="text" class="idInput form-control">
                                     </div>
 
 
-                                    <div class="idPassword2  d-flex ">
-                                        <div class="id2">비밀번호:</div>
-                                        <input type="password" class="idInput form-control">
+                                    <div class="idPassword2  d-flex align-items-center">
+                                        <div class="passwordText">비밀번호:</div>
+                                        <input id="password" type="password" class="idInput form-control">
                                     </div>
 
-                                    <!-- class, id 버튼명 : submit-btn -->
-                                    <button type="button" class="searchButton btn btn-success">조회 하기</button>
+                                    <!-- class, id 버튼명 : submit-btn 서버한테 보낼때 씀.-->
+                                    <button type="button" class="submit-btn btn btn-success justify-content-end">조회 하기</button>
                                 </div>
 
 
                                 <!-- 아이디 비밀번호, 전화번호 (비회원용) -->
-                                <div id="noneMemberBox">
-                                    <div class="idPassword  d-flex ">
+                                <div id="nonMemberBox"  class="d-none">
+                                    <div class="idPassword  d-flex justify-content-end mr-5">
                                         <div>이름:</div>
                                             <input id = "name" type="text" class="idInput form-control">
                                         </div>
 
-                                        <div class="idPassword  d-flex ">
+                                        <div class="idPassword  d-flex justify-content-end mr-5">
                                             <div>전화번호:</div>
                                                 <input id="phoneNumber" type="text" class="idInput form-control">
                                             </div>
 
-                                        <div class="idPassword  d-flex ">
+                                        <div class="idPassword  d-flex justify-content-end mr-5">
                                             <div>날짜:</div>
-                                                <input id="startDate" type="text" class="idInput form-control">
+                                                <input id="reserveDateText" type="text" class="idInput form-control">
                                             </div>
 
-                                        <button  id="noMemberBtn"  type="button" class="searchButton btn btn-success">조회 하기</button>
+                                        <button type="button" class="submit-btn btn btn-success mr-5">조회 하기</button>
 
                                 </div>
 
@@ -143,157 +145,100 @@
             //ready 함수
             $(document).ready(function() {
 
-                //  // 2. 라디오 버튼 이벤트
-                $('input[name=member]').on("click", function() {
-                    let member = $('input[name=member]:checked').val();
-
-                    if (member == "member") { 
+                 // 2. 라디오 버튼 이벤트
+                $('input[name=member]').on("change", function() {  // radio 버튼 중에 하나라도 변경이 일어나는 이벤트.
+                    let value = $(this).val(); // raido 버튼 클릭하면 value값이 나옴.  this가 의미하는 것은 checked 되어 있는에 하나씩을 가리킴. // 변경이 일어난 하나의 태그만 가져온다.
+                    if (value == "member") { //회원 선택
                         $('#memberBox').removeClass("d-none");
-                        $('#noneMemberBox').addClass("d-none");
-                    } else {
+                        $('#nonMemberBox').addClass("d-none");
+                    } else { // 비회원 선택
                         $('#memberBox').addClass("d-none");
-                        $('#noneMemberBox').removeClass("d-none");
+                        $('#nonMemberBox').removeClass("d-none");
                     }
                 });
+          
+  
 
-
-
-                // // 2. datepicker 선생님 코드.
-                // $.datepicker.setDefaults({
-                //     dateFormat:"yy-mm-dd"
-                    
-                // });
-
-                // // 오늘 날짜로 이동하는 함수
-                // $.datepicker._gotoToday = function(id) {
-                //     $(id).datepicker('setDate', new Date()).datepicker('hide').blur();
-                //  };
-
-                // 시작일
-                $('#startDate').datepicker({
-                  showButtonPanel:true
-                  , minDate:0  // 오늘날짜 : 0으로 세팅. 오늘 날짜 이후로 선택
-                  , dateFormat:"yy년 mm월 dd일"   // 2023년 02월 13일
+                // 2. 날짜 영역 datepicker
+                $('#reserveDateText').datepicker({
+                    minDate:0  // 오늘 날짜 이후로 선택 0으로 지정해야됨.
+                    , dateFormat:"yy년 mm월 dd일   "   // 2023년 2월 13일
                 });
 
 
+                // 3. 조회하기 버튼 클릭
+                // 조회하기는 버튼이 두개이기 때문에 이때는 class명을 같이해서 기능을 넣어줘야함. id로 하면 안됨(id는 한개씩만 들어갈 수 있기 때문)
+                // jquery 라디오 체크된거 가져오기 검색.
+                $(".submit-btn").on("click", function() {
+                   // 라디오에 체크가 누가 됐는지 분기
+                   let value = $('input[name=member]:checked').val(); // 라디오 버튼에 체크되어 있는거의 value를 가져온다.
+                   if (value == "member") { // 회원
 
-
-
-                // 2. 선생님 코드  회원/비회원 선택
-                // 라디오 버튼 두개가 가져온거임.
-                // $('input[name=member]').on("change", function () {
-                //     let value = $(this).val();  // this: 변경이 일어난 하나의 태그만 가져온다.****
-                //     if(value == "member"){ // 회원 선택
-                //         $('#memberBox').removeClass("d-none"); // 클래스명만 쓰는거다.
-                //         $('#noneMemberBox').addClass("d-none");
-                //     } else { // 비회원 선택
-                //         $('#memberBox').addClass("d-none"); // 클래스명만 쓰는거다.
-                //         $('#noneMemberBox').removeClass("d-none");
-                //     }
-                    
-
-                    
-
-
-
-
-
-
-
-
-
-
-
-                // 3. 유효성 검사
-                // $("#noMemberBtn").on("click", function() {
-                //     let name = $('#name').val().trim();
-                //     let phoneNumber = $('#phoneNumber').val().trim();
-                //     var regExp = /^(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})$/;
-
-                //     if (name == "") {
-                //         alert("이름을 입력해주세요");
-                //         return;
-                //     }
-
-                //     if (phoneNumber == ""){
-                //         alert("전화번호를 입력해주세요");
-                //         return;
-                //     }
-
-                //     if (phoneNumeber != 010)
-
-                //     if(!regExp.test(mbtlnum)){
-                //         alert("휴대폰번호가 올바르지 않습니다.");
-                //         return false;
-                //     }
-                //     return true;
-                //     }
-                //}); //-- 3 끝
-
-
-
-                // 3. 선생님 코드  조회하기 버튼 클릭
-                // 버튼이 두개 있으면 class명을 같이해서 만듬.
-                // jquey 라디오 체크 검색.
-                $(".searchButton").on("click", function() {
-                    // 라디오 체크가 누가 됐는지 분기
-                    let value = $('input[name=member]:checked').val();
-                   // alert(value);
-
-                   if (value == "member"){  // 회원
                     let id = $('#id').val().trim();
-                    if(id == ""){
+                    if (id == "") {
                         alert("아이디를 입력하세요");
-                        return;  // validation은 꼭 return 넣어야함.****
+                        return;  // validation할 때는 꼭 return문 써야됨! 
                     }
+
+
                     let password = $('#password').val();
-                    if (!password) {
+                    if(!password) {
                         alert("비밀번호를 입력하세요");
-                        return; //validation은 꼭 return 넣어야함.****
+                        return;
                     }
+
+
                    } else { // 비회원
-                     let name = $('#name').val().trim();
-                     if (!name) {
-                        alert("이름을 입력하세요");
-                        return;
-                     }
+                        let name = $('#name').val().trim();
+                        if(name == "") {
+                            alert("이릅을 입력하세요");
+                            return;
+                        }
 
 
-                     let phoneNumber = $('#phoneNumber').val();trim();
-                     if (phoneNumber.length < 1) {
-                        alert("전화번호를 입력하세오");
-                        return;
-                     }
-
-                     // 010으로 시작하는지 확인  010-4477-4111
-                     if (phoneNumber.startsWidth("010") === false) {
-                        alert("010으로 시작하는 번호만 입력 가능합니다.");
-                        return;
-                     }
+                        let phoneNumber = $('#phoneNumber').val().trim();
+                        if (phoneNumber.length < 1){
+                            alert("전화번호를 입력하세요");
+                            return;
+                        }
 
 
-                     let startDate = $('#startDate').val();
-                     if (startDate == "") {
-                        alert("날짜를 선택해주세요");
-                        return;
-                     }
+                        // 010 으로 시작하는지 확인  010-4477-4111
+                        if (phoneNumber.startsWith("010") === false) { // startsWith 메소드 사용 : 010으로 시작하는 ~ 
+                            alert("010 으로 시작하는 번호만 입력 가능합니다.");
+                            return;
+                        }
 
+                        let reserveDateText = $('#reserveDateText').val();
+                        if (reserveDateText == "") {
+                            alert("날짜를 선택해주세요.")
+                            return;
+                        }
                    }
                 });
-                
-                // 4. 이미지 3초 간격으로 변경
-                let bannerImgArr = ['house','test06_banner2.jpg','test06_banner3.jpg','test06_banner4.jpg'];
-                let currentIndex = 0;
-                setInterval(function() {
-                    currentIndex++;
-                    console.log("함수 호출" + currentIndex);
-                    if (currentIndex >= bannerImgArr.length){
-                        currentIndex = 0;
-                    }
 
-                    $('#bannerImg').attr("src", bannerImgArr[currentIndex]);
-                }, 3000);  // 3000 -> 3초  // 익명함수 : function() {}
+
+
+                    // 4. 이미지 3초 간격으로 변경  // setInterval함수 이용.
+                    let bannerImgArr = ['test06_banner1.jpg', 'test06_banner2.jpg', 'test06_banner3.jpg', 'test06_banner4.jpg'];
+                    let currentIndex = 0;
+                    setInterval(function() {
+                        currentIndex++;
+                        console.log("함수 호출" + currentIndex);
+                        if (currentIndex >= bannerImgArr.length){
+                            currentIndex = 0;
+                        }
+
+                        $('#bannerImage').attr("src", bannerImgArr[currentIndex]);
+                    }, 3000);  // 3초는 3000밀리세컨 // 익명함수 이용 : function() {}
+
+
+                 
+
+
+
+                
+               
 
 
             }); // -- ready 끝
